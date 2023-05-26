@@ -109,16 +109,19 @@ let cards = [
   },
 ];
 
-// let star = "";
-// star.textContent = "★";
-// star.classList.add("colour-stars");
+
+
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
   let cardContent = "";
 
+
   for (let card of cards) {
-    cardContent += `<div class='card'>
+    let star = "★";
+
+    cardContent +=
+      `<div class='card'>
   <h2>${card.name}</h2>
   <h3>Вселенная: ${card.universe}</h3>
   <h3>Альтер эго: ${card.alterego}</h3>
@@ -126,20 +129,56 @@ document.addEventListener("DOMContentLoaded", function (event) {
   <p>Друзья: ${card.friends}</p>
   <p>Суперсилы: ${card.superpowers}</p>
   <img class="poster" src="${card.url}" alt="фото героя" >
-  <p class="text-padding">Дополнительная информация: ${card.info}</p>
-  
-  </div>`
+  <p class="text-padding">Дополнительная информация:<br/> ${card.info}</p>
+  <div class="rating">
+  <span class="star" data-rating="1">${star}</span>
+  <span class="star" data-rating="2">${star}</span>
+  <span class="star" data-rating="3">${star}</span>
+  <span class="star" data-rating="4">${star}</span>
+  <span class="star" data-rating="5">${star}</span>
+</div>
+</div>`
   }
 
   container.innerHTML = cardContent;
 
 
-})
+
+  let stars = document.getElementsByClassName('rating');
+  console.log(stars);
+  for (let star of stars) {
+    star.addEventListener('click', function (e) {
+      if (e.target.classList.contains('star')) {
+        e.target.classList.toggle('star-click')
+      }
+    })
+    console.log(star);
+  }
 
 
 
 
-// console.log(card.name);
+
+});
+
+
+
+
+
+
+
+// for (let star of stars) {
+//   stars.addEventListener('click', starsColor);
+//   function starsColor(e) {
+//     if (e.target.classList.contains('star')) {
+//       e.target.classList.toggle('star-click')
+//       console.log(e.target);
+//     }
+//   }
+// }
+
+
+
 
 // const cardsJson = JSON.stringify(cards);
 

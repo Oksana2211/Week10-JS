@@ -16,6 +16,8 @@
   border-radius: 4vw;
   margin: 0;
   text-align: center;
+  position:relative;
+padding-bottom: 5vw;
 }
 .poster {
   max-width:20vw;
@@ -24,9 +26,15 @@
   padding-left: 5%;
   padding-right: 5%;
 }
-.colour-stars {
+.star {
   color: rgb(212, 214, 214);
+  font-size: 2rem;
 }
-.text-stars {
-margin: 0;
+.star-click {
+  color: rgb(251, 255, 9);
+}
+.rating {
+position:absolute;
+bottom:2%;
+left: 30%;
 }
