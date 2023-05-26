@@ -24,3 +24,9 @@
   padding-left: 5%;
   padding-right: 5%;
 }
+.colour-stars {
+  color: rgb(212, 214, 214);
+}
+.text-stars {
+margin: 0;
+}

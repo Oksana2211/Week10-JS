@@ -109,10 +109,12 @@ let cards = [
   },
 ];
 
+// let star = "";
+// star.textContent = "★";
+// star.classList.add("colour-stars");
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-  let stars = "★★★★★";
   let cardContent = "";
 
   for (let card of cards) {
@@ -125,21 +127,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   <p>Суперсилы: ${card.superpowers}</p>
   <img class="poster" src="${card.url}" alt="фото героя" >
   <p class="text-padding">Дополнительная информация: ${card.info}</p>
-  <p>Оцените героя: ${stars}</p>
+  
   </div>`
   }
 
   container.innerHTML = cardContent;
-
-  // for (let i = 1; i <= 5; i++) {
-  //   const star = document.createElement("span");
-  //   star.classList.add("star");
-  //   star.dataset.rating = i;
-  //   star.textContent = "★";
-
-  // }
-  // container.appendChild(star);
-
 
 
 })
