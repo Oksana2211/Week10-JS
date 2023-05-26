@@ -143,32 +143,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   container.innerHTML = cardContent;
 
+
+  let divCards = document.getElementsByClassName('card');
+
+
+  for (let divCard of divCards) {
+    divCard.addEventListener('click', function (e) {
+      if (e.target.classList.contains('star')) {
+        let cardTitle = this.querySelector('.name').innerHTML;
+        console.log(`Супергерой: ${cardTitle}`);
+      }
+
+    })
+
+  };
+
+
   let stars = document.getElementsByClassName('rating');
   for (let star of stars) {
     star.addEventListener('click', function (e) {
       if (e.target.classList.contains('star')) {
         e.target.classList.toggle('star-click');
-        const rating = e.target.dataset;
-        console.log(rating);
+        const rating = e.target.dataset.rating;
+        console.log(`Оценка: ${rating}`);
       }
     })
   }
-
-
-  let divCards = document.getElementsByClassName('card');
-  // console.log(divCards);
-
-  for (let divCard of divCards) {
-    divCard.addEventListener('click', function (e) {
-      if (e.target.classList.contains('star')) {
-        let cardTitles = this.querySelector('.name');
-        console.log(cardTitles);
-      }
-
-    })
-  };
-
-
 
 
   // for (let divCard of divCards) {
@@ -182,8 +182,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // };
 
 
-
-
+  // const totalRating = `Имя супергероя:${cardTitle.innerHTML} Оценка:${rating}`;
+  // console.log(totalRating);
 
 
 });
