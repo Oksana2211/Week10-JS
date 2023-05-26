@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     cardContent +=
       `<div class='card'>
-  <h2>${card.name}</h2>
+  <h2 class="name">${card.name}</h2>
   <h3>Вселенная: ${card.universe}</h3>
   <h3>Альтер эго: ${card.alterego}</h3>
   <p>Род деятельности: ${card.occupation}</p>
@@ -138,22 +138,49 @@ document.addEventListener("DOMContentLoaded", function (event) {
   <span class="star" data-rating="5">${star}</span>
 </div>
 </div>`
+
   }
 
   container.innerHTML = cardContent;
 
-
-
   let stars = document.getElementsByClassName('rating');
-  console.log(stars);
   for (let star of stars) {
     star.addEventListener('click', function (e) {
       if (e.target.classList.contains('star')) {
-        e.target.classList.toggle('star-click')
+        e.target.classList.toggle('star-click');
+        const rating = e.target.dataset;
+        console.log(rating);
       }
     })
-    console.log(star);
   }
+
+
+  let divCards = document.getElementsByClassName('card');
+  // console.log(divCards);
+
+  for (let divCard of divCards) {
+    divCard.addEventListener('click', function (e) {
+      if (e.target.classList.contains('star')) {
+        let cardTitles = this.querySelector('.name');
+        console.log(cardTitles);
+      }
+
+    })
+  };
+
+
+
+
+  // for (let divCard of divCards) {
+  //   divCard.addEventListener('click', function (e) {
+  //     if (e.target.classList.contains('card')) {
+  //       // const NameHero = e.target;
+
+  //       console.log(divCard);
+  //     }
+  //   })
+  // };
+
 
 
 
@@ -164,18 +191,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-
-
-
-// for (let star of stars) {
-//   stars.addEventListener('click', starsColor);
-//   function starsColor(e) {
-//     if (e.target.classList.contains('star')) {
-//       e.target.classList.toggle('star-click')
-//       console.log(e.target);
-//     }
-//   }
-// }
 
 
 
