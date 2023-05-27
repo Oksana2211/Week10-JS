@@ -30,6 +30,9 @@ padding-bottom: 5vw;
   color: rgb(212, 214, 214);
   font-size: 2rem;
 }
+.star:hover {
+  color: rgb(251, 255, 9);
+}
 .star-click {
   color: rgb(251, 255, 9);
 }

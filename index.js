@@ -153,47 +153,67 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let cardTitle = this.querySelector('.name').innerHTML;
         console.log(`Супергерой: ${cardTitle}`);
       }
-
     })
-
   };
 
 
   let stars = document.getElementsByClassName('rating');
+
   for (let star of stars) {
     star.addEventListener('click', function (e) {
       if (e.target.classList.contains('star')) {
         e.target.classList.toggle('star-click');
         const rating = e.target.dataset.rating;
         console.log(`Оценка: ${rating}`);
+
+
+        let s = star.querySelectorAll('.star');
+        if (rating == 5) {
+          s[0].classList.add('star-click');
+          s[1].classList.add('star-click');
+          s[2].classList.add('star-click');
+          s[3].classList.add('star-click');
+          s[4].classList.add('star-click');
+        }
+        if (rating == 4) {
+          s[0].classList.add('star-click');
+          s[1].classList.add('star-click');
+          s[2].classList.add('star-click');
+          s[3].classList.add('star-click');
+          s[4].classList.remove('star-click');
+        }
+        if (rating == 3) {
+          s[0].classList.add('star-click');
+          s[1].classList.add('star-click');
+          s[2].classList.add('star-click');
+          s[3].classList.remove('star-click');
+          s[4].classList.remove('star-click');
+        }
+        if (rating == 2) {
+          s[0].classList.add('star-click');
+          s[1].classList.add('star-click');
+          s[2].classList.remove('star-click');
+          s[3].classList.remove('star-click');
+          s[4].classList.remove('star-click');
+        }
+        if (rating == 1) {
+          s[0].classList.add('star-click');
+          s[1].classList.remove('star-click');
+          s[2].classList.remove('star-click');
+          s[3].classList.remove('star-click');
+          s[4].classList.remove('star-click');
+        }
+
+
+
+
       }
+
+
     })
   }
 
-
-  // for (let divCard of divCards) {
-  //   divCard.addEventListener('click', function (e) {
-  //     if (e.target.classList.contains('card')) {
-  //       // const NameHero = e.target;
-
-  //       console.log(divCard);
-  //     }
-  //   })
-  // };
-
-
-  // const totalRating = `Имя супергероя:${cardTitle.innerHTML} Оценка:${rating}`;
-  // console.log(totalRating);
-
-
 });
-
-
-
-
-
-
-
 
 // const cardsJson = JSON.stringify(cards);
 
