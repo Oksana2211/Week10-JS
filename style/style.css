@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  gap: 2vw;
+  gap: 3vw;
 }
 .card {
   max-width: 25vw;
@@ -19,13 +19,17 @@
   position:relative;
 padding-bottom: 5vw;
 }
+.card:hover{
+  transform: scale(1.05);
+}
 .poster {
   max-width:20vw;
 }
-.text-padding{
+.text{
   padding-left: 5%;
   padding-right: 5%;
 }
+
 .star {
   color: rgb(212, 214, 214);
   font-size: 2rem;

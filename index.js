@@ -116,20 +116,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   let cardContent = "";
 
-
-  for (let card of cards) {
+  for (let card of cards) { //отображаем информацию с карточек на странице
     let star = "★";
-
     cardContent +=
       `<div class='card'>
   <h2 class="name">${card.name}</h2>
   <h3>Вселенная: ${card.universe}</h3>
   <h3>Альтер эго: ${card.alterego}</h3>
-  <p>Род деятельности: ${card.occupation}</p>
-  <p>Друзья: ${card.friends}</p>
-  <p>Суперсилы: ${card.superpowers}</p>
+  <p class="text">Род деятельности: ${card.occupation}</p>
+  <p class="text">Друзья: ${card.friends}</p>
+  <p class="text">Суперсилы: ${card.superpowers}</p>
   <img class="poster" src="${card.url}" alt="фото героя" >
-  <p class="text-padding">Дополнительная информация:<br/> ${card.info}</p>
+  <p class="text">Дополнительная информация:<br/> ${card.info}</p>
   <div class="rating">
   <span class="star" data-rating="1">${star}</span>
   <span class="star" data-rating="2">${star}</span>
@@ -138,36 +136,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
   <span class="star" data-rating="5">${star}</span>
 </div>
 </div>`
-
   }
-
   container.innerHTML = cardContent;
 
 
-  let divCards = document.getElementsByClassName('card');
-
+  let divCards = document.getElementsByClassName('card'); // коллекция карточек 
 
   for (let divCard of divCards) {
-    divCard.addEventListener('click', function (e) {
+    divCard.addEventListener('click', function (e) {  // при нажатии на карточку записываем имя героя в переменную
       if (e.target.classList.contains('star')) {
         let cardTitle = this.querySelector('.name').innerHTML;
-        console.log(`Супергерой: ${cardTitle}`);
+        localStorage.setItem('NameHero', cardTitle);
+        // console.log(`Супергерой: ${cardTitle}`);
       }
     })
   };
 
 
-  let stars = document.getElementsByClassName('rating');
+  let stars = document.getElementsByClassName('rating'); //рейтинги карточек
 
   for (let star of stars) {
     star.addEventListener('click', function (e) {
-      if (e.target.classList.contains('star')) {
-        e.target.classList.toggle('star-click');
-        const rating = e.target.dataset.rating;
-        console.log(`Оценка: ${rating}`);
+      if (e.target.classList.contains('star')) { // находим рейтинг нажатой карточки
+        e.target.classList.toggle('star-click'); // меняем класс у нажатой звёздочки
+        const rating = e.target.dataset.rating; //записываем рейтинг в переменную
+        localStorage.setItem('RatingHero', rating);
 
-
-        let s = star.querySelectorAll('.star');
+        let s = star.querySelectorAll('.star'); // проверка звездного рейтинга
         if (rating == 5) {
           s[0].classList.add('star-click');
           s[1].classList.add('star-click');
@@ -204,17 +199,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
           s[4].classList.remove('star-click');
         }
 
-
-
-
       }
-
 
     })
   }
 
 });
 
-// const cardsJson = JSON.stringify(cards);
+
+
+
+
+
 
 
