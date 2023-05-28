@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     divCard.addEventListener('click', function (e) {  // при нажатии на карточку записываем имя героя в переменную
       if (e.target.classList.contains('star')) {
         let cardTitle = this.querySelector('.name').innerHTML;
-        NameHero = `${cardTitle},`; //записываем имя героя в переменную
+        NameHero = `${cardTitle}`; //записываем имя героя в переменную
 
         arrInfoHero.push(`${NameHero} ${RatingHero}`); //заполняем массив именем героя и его рейтингом
         localStorage.setItem('NameHeroRating', arrInfoHero); ///ЗАПИСЫВАЕМ данные из массива в localStorage
