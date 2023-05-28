@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     divCard.addEventListener('click', function (e) {  // при нажатии на карточку записываем имя героя в переменную
       if (e.target.classList.contains('star')) {
         let cardTitle = this.querySelector('.name').innerHTML;
-        localStorage.setItem('NameHero', cardTitle);
+        localStorage.setItem('NameHero', cardTitle); ///ЗАПИСЫВАЕМ имя героя в localStorage
         // console.log(`Супергерой: ${cardTitle}`);
       }
     })
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (e.target.classList.contains('star')) { // находим рейтинг нажатой карточки
         e.target.classList.toggle('star-click'); // меняем класс у нажатой звёздочки
         const rating = e.target.dataset.rating; //записываем рейтинг в переменную
-        localStorage.setItem('RatingHero', rating);
+        localStorage.setItem('RatingHero', rating); ///ЗАПИСЫВАЕМ рейтинг героя в localStorage
 
         let s = star.querySelectorAll('.star'); // проверка звездного рейтинга
         if (rating == 5) {
